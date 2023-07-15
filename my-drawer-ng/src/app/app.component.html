@@ -48,6 +48,15 @@
           <Label col="1" text="Featured" class="p-r-10"></Label>
         </GridLayout>
 
+        <GridLayout
+          columns="auto, *"
+          class="nt-drawer__list-item"
+          [class.-selected]="isComponentSelected('/entrada')"
+          (tap)="onNavItemTap('/entrada')"
+        >
+          <Label col="1" text="Nuevo" class="p-r-10"></Label>
+        </GridLayout>
+
         <StackLayout class="hr"></StackLayout>
 
         <GridLayout

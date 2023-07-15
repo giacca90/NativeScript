@@ -3,10 +3,12 @@ import { NativeScriptCommonModule } from '@nativescript/angular'
 
 import { HomeRoutingModule } from './home-routing.module'
 import { HomeComponent } from './home.component'
+import { EntradaModule } from '../entrada/entrada.module'
+
 
 @NgModule({
-  imports: [NativeScriptCommonModule, HomeRoutingModule],
+  imports: [NativeScriptCommonModule, HomeRoutingModule,],
   declarations: [HomeComponent],
-  schemas: [NO_ERRORS_SCHEMA],
+  schemas: [NO_ERRORS_SCHEMA], 
 })
 export class HomeModule {}
