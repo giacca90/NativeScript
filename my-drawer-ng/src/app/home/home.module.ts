@@ -7,7 +7,7 @@ import { EntradaModule } from '../entrada/entrada.module'
 
 
 @NgModule({
-  imports: [NativeScriptCommonModule, HomeRoutingModule,],
+  imports: [NativeScriptCommonModule, HomeRoutingModule],
   declarations: [HomeComponent],
   schemas: [NO_ERRORS_SCHEMA], 
 })
