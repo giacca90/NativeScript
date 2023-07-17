@@ -7,6 +7,8 @@
     </GridLayout>
   </ActionBar>
 
-<GridLayout class="page__content">
+<StackLayout class="page__content">
+    <Label class="page__content-icon fa" text="&#xf17b;" *ngIf="(ico=='i')"></Label>
+    <Label class="page__content-icon fab" text="&#xf179;" *ngIf="(ico=='a')" ></Label>    
     <Label class="page__content-placeholder" text="componente descrición"></Label>
-</GridLayout>
+</StackLayout>

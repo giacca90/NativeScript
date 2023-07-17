@@ -10,6 +10,11 @@
   font-weight: 400;
 }
 
+.fa {
+  font-family: 'Font Awesome 4 Brands', 'fa-brands-400';
+  font-weight: 400;
+}
+
 .fas {
   font-family: 'Font Awesome 5 Free', 'fa-solid-900';
   font-weight: 900;
@@ -40,4 +45,12 @@
 // Drawer navigation custom styles
 .nt-drawer__header-image {
   color: const(grey);
+}
+
+.android.action-bar-title {
+  background-color: aqua;
+}
+
+.ios.action-bar-title {
+  background-color: yellowgreen;
 }
