@@ -1,6 +1,8 @@
+<!-- <PullRefresh:PullToRefresh (refresh)="onPool($event)"> -->
+  <SearchForm (search)="buscar($event)"></SearchForm>
    <ListView
     class="list-group"
-    [items]="this.noticias.buscar()"
+    [items]="this.resultado"
     (itemTap)="onItemTap($event)"
     style="height: 1250px"
   >
@@ -16,3 +18,4 @@
       </FlexboxLayout>
     </ng-template>
   </ListView>
+<!-- </PullRefresh:PullToRefresh>  --> 

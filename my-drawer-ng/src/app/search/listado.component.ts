@@ -11,6 +11,7 @@ import { filter } from "rxjs";
   templateUrl: "./listado.component.html",
 })
 export class ListadoComponent implements OnInit {
+  resultado: Array<string>;
 
   private _activatedUrl: string
   private _sideDrawerTransition: DrawerTransitionBase
@@ -18,9 +19,9 @@ export class ListadoComponent implements OnInit {
   constructor(public noticias: NoticiaService, private routerExtensions: RouterExtensions, private router: Router) {}
 
   ngOnInit(): void {
-    this.noticias.agregar("Hola");
-    this.noticias.agregar(" a ");
-    this.noticias.agregar("todos");
+    this.noticias.agregar("Documentos");
+    this.noticias.agregar("Plantillas");
+    this.noticias.agregar("Presentaciónes");
 
     this._activatedUrl = '/search'
     this._sideDrawerTransition = new SlideInOnTopTransition()
@@ -42,8 +43,13 @@ export class ListadoComponent implements OnInit {
   onPool(args) {
     const pullRefresh = args.object;
     setTimeout(function () {
-      this.noticias.agregar('xxxxxx');
+      this.noticias.agregar('Reclamos');
        pullRefresh.refreshing = false;
     }, 1000);
+  }
+
+  buscar(s: string)  {
+    let s2: string = s.toLowerCase();
+    this.resultado = this.noticias.buscar().filter((x) => x.toLowerCase().indexOf(s) >= 0)
   }
 }
