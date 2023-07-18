@@ -18,9 +18,10 @@
     <ng-template let-x="item">
       <GridLayout columns="auto,*,auto" rows="auto,25" verticalAlignment="top" tabBackgroundColor="lightgray">
         <Image src="res://icon" rowSpan="2" width="72" height="72" margin="3" verticalAlignment="top"></Image>
-        <Label [text]="x" textWrap="true" col="1" colSpan="2" minHeight="50" fontSize="20" margin="3"></Label>
-        <Label col="1" text="&#xf164;" class="nt-icon fas"></Label>
-        <Label col="2" text="&#xf165;" class="nt-icon fas"></Label>
+        <Label [text]="x.name" textWrap="true" col="1" colSpan="2" minHeight="50" fontSize="20" margin="3"></Label>
+        <Label col="1" text="&#xf164;" class="nt-icon fas" (tap)="upTap()"></Label>
+        <Label col="2" text="&#xf165;" class="nt-icon fas" (tap)="downTap()"></Label>
+        <Button col="0" row="2" class="btn" (tap)="edit(x)">Editar</Button>
       </GridLayout>
     </ng-template>
   </ListView>

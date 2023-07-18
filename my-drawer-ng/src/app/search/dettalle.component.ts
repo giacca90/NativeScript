@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core'
 import { Application } from '@nativescript/core';
+import { ToastDuration, Toasty } from '@triniwiz/nativescript-toasty';
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
+//import * as dialogs from "@nativescript/core";
+import * as dialogs from "@nativescript/core/ui/dialogs";
+
+import { DetalleModel } from './detalle.model'
 
 @Component({
     selector: 'DetalleComponent',
@@ -8,12 +13,15 @@ import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
   })
 
   export class DetalleComponent implements OnInit {
-     ofertas: string[];
-     num: number = 3;
-   
-    ngOnInit(): void {
-      this.ofertas= ['Oferta 1', 'Oferta 2', 'Oferta 3']
+    ofertas: DetalleModel[];
+    
+    constructor()  {}
 
+    ngOnInit(): void {
+      let a: DetalleModel = new DetalleModel;
+      let b: DetalleModel = new DetalleModel;
+      let c: DetalleModel = new DetalleModel;
+      this.ofertas = [a, b, c]
     }
     
     onDrawerButtonTap(): void {
@@ -23,10 +31,42 @@ import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 
     onPool(args) {
       const pullRefresh = args.object;
-      this.num++;
-      this.ofertas.push('Oferta '+this.num);
+      this.ofertas.push(new DetalleModel) ;
       setTimeout(function () {       
          pullRefresh.refreshing = false;
       }, 1000);
     }
+
+    upTap() {
+      alert('Has dato un Like');
+    }
+
+    downTap()  {
+      alert('has dado un disLike');
+    }
+
+    doLater(fn) { setTimeout(fn, 1000); }
+    
+   edit(x:DetalleModel) {
+//    alert(x.name);
+
+dialogs.prompt({
+  title: "Editar Elemento",
+  message: "Edita el nombre",
+  okButtonText: "Editar",
+  cancelButtonText: "Cancelar",
+//  neutralButtonText: "  ",
+  defaultText: x.name,
+  inputType: dialogs.inputType.text
+}).then(r => {
+  if(r.result) {
+    x.edit(r.text);
+  const toast = new Toasty({ text: 'Editado' })
+        .setToastDuration(ToastDuration.SHORT);
+        toast.show();
+  }
+  
+});
+  
+   }
   }
