@@ -7,7 +7,10 @@
   </GridLayout>
 </ActionBar>
 
-<GridLayout class="page__content">
+<StackLayout class="page__content" id="layout" #layout>
   <Label class="page__content-icon fas" text="&#xf005;"></Label>
   <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+  <Button (tap)="prueba()">color</Button>
+  <Button (tap)="prueba2()">rotación</Button>
+  <Button (tap)="prueba3()">escalado</Button>
+</StackLayout>
