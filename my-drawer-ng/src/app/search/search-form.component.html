@@ -1,0 +1,29 @@
+<FlexboxLayout flexDirection="row">
+  <TextField
+    #texto="ngModel"
+    [(ngModel)]="textFieldValue"
+    hint="Ingresar texto..."
+    required
+    minlen="4"
+  >
+  </TextField>
+  <Label *ngIf="texto.hasError('required')" text="*"></Label>
+  <Label
+    *ngIf="!texto.hasError('required') && texto.hasError('minlen')"
+    text="4+"
+  >
+  </Label>
+</FlexboxLayout>
+<Button text="Buscar!" (tap)="onButtonTap()" *ngIf="texto.valid"></Button>
+
+<!-- <TextField [(ngModel)]="textFieldValue" hint="Ingresar texto..."></TextField>
+    <Button text="Buscar!" (tap)="onButtonTap()"></Button>
+ -->
+
+<!-- <FlexboxLayout flexDirection="row">
+    <TextField #texto="ngModel" [(ngModel)]="textFieldValue" hint="Ingresar texto..."
+    required></TextField>
+    <Label *ngIf="texto.hasError('required')" text="*"></Label>
+   </FlexboxLayout>
+   <Button text="Buscar!" (tap)="onButtonTap()" *ngIf="texto.valid"></Button>
+ -->

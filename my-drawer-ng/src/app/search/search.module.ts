@@ -6,11 +6,13 @@ import { SearchComponent } from './search.component'
 import { NoticiaService } from '../services/noticias.service'
 import { DetalleComponent } from './dettalle.component'
 import { ListadoComponent } from './listado.component'
-import{ SearchFormComponent } from'./search-form.component'
+import { SearchFormComponent } from'./search-form.component'
+import { MinLenDirective} from './validator'
+import { DialogContent } from './editar-detalle.component'
 
 @NgModule({
   imports: [NativeScriptCommonModule, SearchRoutingModule, NativeScriptFormsModule],
-  declarations: [SearchComponent, DetalleComponent, ListadoComponent, SearchFormComponent ],
+  declarations: [SearchComponent, DetalleComponent, ListadoComponent, SearchFormComponent, MinLenDirective, DialogContent ],
   providers: [NoticiaService],
   schemas: [NO_ERRORS_SCHEMA],
 })

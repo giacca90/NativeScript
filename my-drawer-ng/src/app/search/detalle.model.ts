@@ -1,4 +1,4 @@
-import { ToastDuration, Toasty } from '@triniwiz/nativescript-toasty';
+//import { ToastDuration, Toasty } from '@triniwiz/nativescript-toasty';
 
 export class DetalleModel {
     static id: number = 0;

@@ -21,7 +21,8 @@
         <Label [text]="x.name" textWrap="true" col="1" colSpan="2" minHeight="50" fontSize="20" margin="3"></Label>
         <Label col="1" text="&#xf164;" class="nt-icon fas" (tap)="upTap()"></Label>
         <Label col="2" text="&#xf165;" class="nt-icon fas" (tap)="downTap()"></Label>
-        <Button col="0" row="2" class="btn" (tap)="edit(x)">Editar</Button>
+<!--         <Button col="0" row="2" class="btn" (tap)="edit(x)">Editar</Button> -->
+        <Button col="0" row="2" class="btn" (tap)="show(x)">Editar</Button>
       </GridLayout>
     </ng-template>
   </ListView>
