@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { Application } from '@nativescript/core'
 
-import { NoticiaService } from '../services/noticias.service'
+import { NoticiasService } from '../services/noticias.service'
+import { ToastDuration, Toasty } from '@triniwiz/nativescript-toasty';
 
 @Component({
   selector: 'Search',
   templateUrl: './search.component.html',
-//  providers: [NoticiaService]
+  providers: [NoticiasService]
 })
 export class SearchComponent implements OnInit {
-  constructor() {
+  resultados: Array<string>;
+  constructor(private noticias: NoticiasService) {
     // Use the component constructor to inject providers.
   }
 
@@ -30,4 +32,6 @@ export class SearchComponent implements OnInit {
        pullRefresh.refreshing = false;
     }, 1000);
   }
+
+ 
 }

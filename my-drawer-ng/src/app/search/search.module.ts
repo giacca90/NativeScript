@@ -3,7 +3,7 @@ import { NativeScriptCommonModule, NativeScriptFormsModule } from '@nativescript
 
 import { SearchRoutingModule } from './search-routing.module'
 import { SearchComponent } from './search.component'
-import { NoticiaService } from '../services/noticias.service'
+import { NoticiasService } from '../services/noticias.service'
 import { DetalleComponent } from './dettalle.component'
 import { ListadoComponent } from './listado.component'
 import { SearchFormComponent } from'./search-form.component'
@@ -13,7 +13,7 @@ import { DialogContent } from './editar-detalle.component'
 @NgModule({
   imports: [NativeScriptCommonModule, SearchRoutingModule, NativeScriptFormsModule],
   declarations: [SearchComponent, DetalleComponent, ListadoComponent, SearchFormComponent, MinLenDirective, DialogContent ],
-  providers: [NoticiaService],
+  providers: [NoticiasService],
   schemas: [NO_ERRORS_SCHEMA],
 })
 export class SearchModule {}
