@@ -1,0 +1,24 @@
+<ActionBar class="action-bar">
+    <NavigationButton visibility="hidden"></NavigationButton>
+    <GridLayout columns="50, *">
+      <Label class="action-bar-title" text="Settings" colSpan="2"></Label>
+  
+      <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
+    </GridLayout>
+  </ActionBar>
+  
+  <StackLayout class="page__content">
+    <Label class="page__content-icon fas" text="&#xf013;"></Label>
+    <Label class="page__content-placeholder" text="Componente add"></Label>
+    <Label  text= "Campo obligatorio!!!" textAlignment="center" style="color:red;" *ngIf="this.texto.length <= 0"></Label>
+    <Label  text="Se necesitan minimo 3 caracteres" textAlignment="center" style="color:red;" *ngIf="this.texto.length > 0 && this.texto.length < 3"></Label>
+    <TextField 
+        type="text" 
+        hint="Nuevo Usuario"        
+        (textChange)="cambios($event)"
+        required
+        ></TextField>
+    <Button (tap)="add()" text="Agregar Usuario"  *ngIf="this.texto.length > 2"></Button>
+    <Button isEnabled="false" background-color="white" text="Agregar Usuario" *ngIf="this.texto.length < 3" ></Button>
+  </StackLayout>
+  

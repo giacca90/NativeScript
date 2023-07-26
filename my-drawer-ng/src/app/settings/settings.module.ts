@@ -3,10 +3,10 @@ import { NativeScriptCommonModule } from '@nativescript/angular'
 
 import { SettingsRoutingModule } from './settings-routing.module'
 import { SettingsComponent } from './settings.component'
-
+import { AddComponent } from './add.component'
 @NgModule({
   imports: [NativeScriptCommonModule, SettingsRoutingModule],
-  declarations: [SettingsComponent],
+  declarations: [SettingsComponent, AddComponent],
   schemas: [NO_ERRORS_SCHEMA],
 })
 export class SettingsModule {}

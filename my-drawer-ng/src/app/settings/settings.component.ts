@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import { Application } from '@nativescript/core';
-import * as dialogs from "@nativescript/core";
-//import * as Toast from "nativescript-toasts";
-import { ToastDuration, Toasty } from "@triniwiz/nativescript-toasty"
+import { RouterExtensions } from '@nativescript/angular'
+import * as appSettings from "tns-core-modules/application-settings";
 
 @Component({
   selector: 'Settings',
   templateUrl: './settings.component.html',
 })
+
 export class SettingsComponent implements OnInit {
 //  toastOptions: Toast.ToastOptions = {text: "Hello World", duration: Toast.DURATION.SHORT};
-  constructor() {
+  nombreUsuario: string = appSettings.getString("nombreUsuario");
+  constructor(private routerExtensions: RouterExtensions) {
     // Use the component constructor to inject providers.
+    
   }
+
   doLater(fn) { setTimeout(fn, 1000); }
 
   ngOnInit(): void {
     // Init your component properties here.
-    const toast = new Toasty({ text: 'Some Message' })
-    .setToastDuration(ToastDuration.SHORT);
-    this.doLater(toast.show())
     
 //    this.doLater(() =>  Toast.show(this.toastOptions) )
 
@@ -53,4 +53,12 @@ export class SettingsComponent implements OnInit {
     const sideDrawer = <RadSideDrawer>Application.getRootView()
     sideDrawer.showDrawer()
   }
+
+  onNavItemTap(navItemRoute: string): void {
+    this.routerExtensions.navigate([navItemRoute], {
+      transition: {
+        name: 'fade',
+      },
+    })
+}
 }

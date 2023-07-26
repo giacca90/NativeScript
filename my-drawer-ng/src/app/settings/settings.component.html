@@ -7,7 +7,9 @@
   </GridLayout>
 </ActionBar>
 
-<GridLayout class="page__content">
+<StackLayout class="page__content">
   <Label class="page__content-icon fas" text="&#xf013;"></Label>
-  <Label class="page__content-placeholder" text="<!-- Page content goes here -->"></Label>
-</GridLayout>
+  <Label class="page__content-placeholder" text="Componente Settings"></Label>
+  <Label textAlignment="center" text={{nombreUsuario}}></Label>
+  <Button (tap)="onNavItemTap('settings/add')">Añadir Usuario</Button>
+</StackLayout>
