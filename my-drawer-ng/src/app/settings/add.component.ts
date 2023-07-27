@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { Application, TextField } from '@nativescript/core'
-import * as appSettings from "tns-core-modules/application-settings";
+//import * as appSettings from "tns-core-modules/application-settings";
 import { RouterExtensions } from '@nativescript/angular'
 
 @Component({
@@ -30,7 +30,7 @@ export class AddComponent implements OnInit {
 }
 
   add()  {
-    appSettings.setString("nombreUsuario", this.texto);
+//    appSettings.setString("nombreUsuario", this.texto);
     this.routerExtensions.navigate(["settings"], {
       transition: {
         name: 'fade',

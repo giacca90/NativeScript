@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import { Application } from '@nativescript/core';
 import { RouterExtensions } from '@nativescript/angular'
-import * as appSettings from "tns-core-modules/application-settings";
+//import * as appSettings from "tns-core-modules/application-settings";
 
 @Component({
   selector: 'Settings',
@@ -11,7 +11,7 @@ import * as appSettings from "tns-core-modules/application-settings";
 
 export class SettingsComponent implements OnInit {
 //  toastOptions: Toast.ToastOptions = {text: "Hello World", duration: Toast.DURATION.SHORT};
-  nombreUsuario: string = appSettings.getString("nombreUsuario");
+//  nombreUsuario: string = appSettings.getString("nombreUsuario");
   constructor(private routerExtensions: RouterExtensions) {
     // Use the component constructor to inject providers.
     
