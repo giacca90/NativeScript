@@ -9,11 +9,11 @@ import { ListadoComponent } from './listado.component'
 import { SearchFormComponent } from'./search-form.component'
 import { MinLenDirective} from './validator'
 import { DialogContent } from './editar-detalle.component'
+import { FavoritosComponent } from './favoritos.component'
 
 @NgModule({
   imports: [NativeScriptCommonModule, SearchRoutingModule, NativeScriptFormsModule],
-  declarations: [SearchComponent, DetalleComponent, ListadoComponent, SearchFormComponent, MinLenDirective, DialogContent ],
-  providers: [NoticiasService],
+  declarations: [SearchComponent, DetalleComponent, ListadoComponent, FavoritosComponent, SearchFormComponent, MinLenDirective, DialogContent ],
   schemas: [NO_ERRORS_SCHEMA],
 })
 export class SearchModule {}

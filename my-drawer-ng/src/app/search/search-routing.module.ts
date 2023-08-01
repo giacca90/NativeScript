@@ -4,9 +4,11 @@ import { NativeScriptRouterModule } from '@nativescript/angular'
 
 import { SearchComponent } from './search.component'
 import { DetalleComponent } from './dettalle.component'
+import { FavoritosComponent } from './favoritos.component'
 
 const routes: Routes = [{ path: '', component: SearchComponent },
-{ path: 'detalle', component: DetalleComponent }
+{ path: 'detalle', component: DetalleComponent },
+{ path: 'favoritos', component: FavoritosComponent }
 ]
 
 

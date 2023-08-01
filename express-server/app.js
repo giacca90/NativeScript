@@ -4,7 +4,7 @@ app.use(express.json());
 app.use(cors());
 app.listen(3000, () => console.log("Server running in port 3000"));
 let noticias = [
-    "Pasaporte REML", "Restitutio a integrum", "Letras de cambio", "SPC (Secured Party Creditor)"
+    "Pasaporte REML", "Restitutio a integrum", "Letras de cambio", "SPC (Secured Party Creditor)","Pasaporte Mundial"
 ];
 app.get("/get", (req, res, next) => 
 res.json(noticias.filter((c) => c.toLowerCase().indexOf(req.query.q.toString().toLowerCase()) > -1)));

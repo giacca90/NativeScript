@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { NoticiasService } from "../services/noticias.service"
 
 @Component({
     selector: "SearchForm",
@@ -10,6 +11,10 @@ export class SearchFormComponent implements OnInit {
     textFieldValue: string = "";
     @Output() search: EventEmitter<string> = new EventEmitter();
 
+    constructor(public noticias: NoticiasService)  {
+
+    }
+
     ngOnInit(): void {
        
     }
@@ -18,6 +23,7 @@ export class SearchFormComponent implements OnInit {
         console.log(this.textFieldValue);
         if (this.textFieldValue.length > 2) {
             this.search.emit(this.textFieldValue);
+            console.log("en form "+ this.noticias.favoritos)
         }
     }
 }

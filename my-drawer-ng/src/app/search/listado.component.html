@@ -13,8 +13,10 @@
           [text]="x"
           class="list-group-item-heading"
           verticalAlignment="center"
-          style="width: 60%"
+          style="width: 60%"n
         ></Label>
+        <Label text="&#xf004;" class="nt-icon fas" *ngIf="this.noticias.favoritos.indexOf(x) == -1" (tap)="this.noticias.addFavorito(x)"  ></Label>
+        <Label text="&#xf7a9;" class="nt-icon fas" *ngIf="this.noticias.favoritos.indexOf(x) != -1" (tap)="this.noticias.removeFavorito(x)"  ></Label>
       </FlexboxLayout>
     </ng-template>
   </ListView>

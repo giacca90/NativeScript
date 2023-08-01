@@ -8,12 +8,13 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { EditComponent} from './editar-comp.component'
 import { MenuService} from './services/menu.service'
+import { NoticiasService } from './services/noticias.service'
 
 @NgModule({
   bootstrap: [AppComponent],
   imports: [AppRoutingModule, NativeScriptModule, NativeScriptUISideDrawerModule],
   declarations: [AppComponent, EditComponent],
-  providers: [MenuService],
+  providers: [MenuService, NoticiasService],
   schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {}

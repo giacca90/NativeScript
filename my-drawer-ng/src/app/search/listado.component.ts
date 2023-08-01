@@ -10,15 +10,17 @@ import { ToastDuration, Toasty } from "@triniwiz/nativescript-toasty";
 @Component({
   selector: "ListadoComponent",
   templateUrl: "./listado.component.html",
-  providers: [NoticiasService]
 })
 export class ListadoComponent implements OnInit {
   resultado: Array<string>;
+  favoritos: string[] = [];
 
   private _activatedUrl: string
   private _sideDrawerTransition: DrawerTransitionBase
 
-  constructor(public noticias: NoticiasService, private routerExtensions: RouterExtensions, private router: Router) {}
+  constructor(public noticias: NoticiasService, private routerExtensions: RouterExtensions, private router: Router) {
+    console.log("-----LISTADO------"+this.noticias.favoritos)
+  }
 
   ngOnInit(): void {
 /*     this.noticias.agregar("Documentos");
@@ -59,5 +61,6 @@ export class ListadoComponent implements OnInit {
       console.log("error buscarAhora " +e);
       const toast = new Toasty({ text: "Error en la búsqueda" }).setToastDuration(ToastDuration.SHORT)
     })
+
   }
 }
