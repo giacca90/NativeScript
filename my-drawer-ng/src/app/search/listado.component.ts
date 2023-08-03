@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from '@nativescript/angular'
+//import { Store } from "@ngrx/store";
+//import { AppState } from "../app.module";
+//import { Noticia, NuevaNoticiaAction } from "../services/noticias-state.model";
 
 import { NoticiasService } from "../services/noticias.service";
 import { DrawerTransitionBase, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
@@ -18,7 +21,11 @@ export class ListadoComponent implements OnInit {
   private _activatedUrl: string
   private _sideDrawerTransition: DrawerTransitionBase
 
-  constructor(public noticias: NoticiasService, private routerExtensions: RouterExtensions, private router: Router) {
+  constructor(public noticias: NoticiasService, 
+    private routerExtensions: RouterExtensions, 
+    private router: Router,
+//    private store: Store<AppState>
+    ) {
     console.log("-----LISTADO------"+this.noticias.favoritos)
   }
 
@@ -26,6 +33,16 @@ export class ListadoComponent implements OnInit {
 /*     this.noticias.agregar("Documentos");
     this.noticias.agregar("Plantillas");
     this.noticias.agregar("Presentaciónes");
+ */
+    /*  this.store.select((state) => state.noticias.sugerida)
+    .subscribe((data) => {
+        const f = data;
+        if (f != null) {
+          const toast = new Toasty({ text: "Sugerimos leer: " }).setToastDuration(
+            ToastDuration.SHORT);
+            console.log("Sugerimos leer: "+f);
+          }
+    });
  */
     this._activatedUrl = '/search'
     this._sideDrawerTransition = new SlideInOnTopTransition()
@@ -35,8 +52,8 @@ export class ListadoComponent implements OnInit {
       .subscribe((event: NavigationEnd) => (this._activatedUrl = event.urlAfterRedirects))
      }
 
-  onItemTap(x): void {
-    console.dir(x);
+  onItemTap(args): void {
+//    this.store.dispatch(new NuevaNoticiaAction(new Noticia(args.view.bindingContext)));
       this.routerExtensions.navigate(['search/detalle'], {
       transition: {
         name: 'fade',

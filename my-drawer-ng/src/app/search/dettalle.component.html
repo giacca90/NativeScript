@@ -1,30 +1,70 @@
 <PullRefresh:PullToRefresh (refresh)="onPool($event)">
-<ActionBar class="action-bar">
+  <ActionBar class="action-bar">
     <NavigationButton visibility="hidden"></NavigationButton>
     <GridLayout columns="50, *">
       <Label class="action-bar-title" text="Detalles" colSpan="2"></Label>
-  
+
       <Label class="fas" text="&#xf0c9;" (tap)="onDrawerButtonTap()"></Label>
     </GridLayout>
   </ActionBar>
-  
+
   <GridLayout class="page__content">
     <!-- <Label class="page__content-placeholder" text="pagina de detalle"></Label> -->
     <ListView
-    class="list-group"
-    [items]="this.ofertas"
-    style="height: 1250px"
-  >
-    <ng-template let-x="item">
-      <GridLayout columns="auto,*,auto" rows="auto,25" verticalAlignment="top" tabBackgroundColor="lightgray">
-        <Image src="res://icon" rowSpan="2" width="72" height="72" margin="3" verticalAlignment="top"></Image>
-        <Label [text]="x.name" textWrap="true" col="1" colSpan="2" minHeight="50" fontSize="20" margin="3"></Label>
-        <Label col="1" text="&#xf164;" class="nt-icon fas" (tap)="upTap()"></Label>
-        <Label col="2" text="&#xf165;" class="nt-icon fas" (tap)="downTap()"></Label>
-<!--         <Button col="0" row="2" class="btn" (tap)="edit(x)">Editar</Button> -->
-        <Button col="0" row="2" class="btn" (tap)="show(x)">Editar</Button>
-      </GridLayout>
-    </ng-template>
-  </ListView>
+      class="list-group"
+      [items]="this.ofertas"
+      (itemTap)="onItemTap($event)"
+      style="height: 1250px"
+    >
+      <ng-template let-x="item">
+        <GridLayout
+          columns="auto,*,auto"
+          rows="auto,25"
+          verticalAlignment="top"
+          tabBackgroundColor="lightgray"
+        >
+          <Image
+            src="res://icon"
+            rowSpan="2"
+            width="72"
+            height="72"
+            margin="3"
+            verticalAlignment="top"
+          ></Image>
+          <Label
+            [text]="x.name"
+            col="1"
+            colSpan="2"
+            minHeight="50"
+            fontSize="20"
+            margin="3"
+          ></Label>
+          <Label
+            col="1"
+            text="&#xf164;"
+            class="nt-icon fas"
+            (tap)="upTap()"
+          ></Label>
+          <Label
+            col="2"
+            text="&#xf165;"
+            class="nt-icon fas"
+            (tap)="downTap()"
+          ></Label>
+          <!--         <Button col="0" row="2" class="btn" (tap)="edit(x)">Editar</Button> -->
+          <Label
+            col="0"
+            row="2"
+            class="btn btn-primary"
+            text="Editar"
+            textAlignment="center"
+            style="color: white"
+            backgroundColor="blue"
+            textSize="20"
+            (tap)="show(x)"
+          ></Label>
+        </GridLayout>
+      </ng-template>
+    </ListView>
   </GridLayout>
-</PullRefresh:PullToRefresh>  
+</PullRefresh:PullToRefresh>

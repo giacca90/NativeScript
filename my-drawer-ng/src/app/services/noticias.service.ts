@@ -4,7 +4,7 @@ const sqlite = require("nativescript-sqlite");
 
 @Injectable()
 export class NoticiasService {
-  api: string = "https://nasty-ways-appear.loca.lt";
+  api: string = "https://shiny-pillows-report.loca.lt";
   favoritos: string[] = [];
  
   constructor() {

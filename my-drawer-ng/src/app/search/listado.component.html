@@ -1,23 +1,37 @@
 <!-- <PullRefresh:PullToRefresh (refresh)="onPool($event)"> -->
-  <SearchForm (search)="buscar($event)"></SearchForm>
-   <ListView
-    class="list-group"
-    [items]="this.resultado"
-    (itemTap)="onItemTap($event)"
-    style="height: 1250px"
-  >
-    <ng-template let-x="item">
-      <FlexboxLayout flexDirection="row" class="list-group-item">
-        <Image src="res://icon" class="thumb img-circle"></Image>
-        <Label
-          [text]="x"
-          class="list-group-item-heading"
-          verticalAlignment="center"
-          style="width: 60%"n
-        ></Label>
-        <Label text="&#xf004;" class="nt-icon fas" *ngIf="this.noticias.favoritos.indexOf(x) == -1" (tap)="this.noticias.addFavorito(x)"  ></Label>
-        <Label text="&#xf7a9;" class="nt-icon fas" *ngIf="this.noticias.favoritos.indexOf(x) != -1" (tap)="this.noticias.removeFavorito(x)"  ></Label>
-      </FlexboxLayout>
-    </ng-template>
-  </ListView>
-<!-- </PullRefresh:PullToRefresh>  --> 
+<SearchForm (search)="buscar($event)"></SearchForm>
+<ListView
+  class="list-group"
+  [items]="this.resultado"
+  (itemTap)="onItemTap($event)"
+  style="height: 1250px"
+>
+  <ng-template let-x="item">
+    <FlexboxLayout flexDirection="row" class="list-group-item">
+      <Image 
+        src="res://icon" 
+        class="thumb img-circle">
+      </Image>
+      <Label
+        [text]="x"
+        class="list-group-item-heading"
+        verticalAlignment="center"
+        style="width: 60%"
+        n
+      ></Label>
+      <Label
+        text="&#xf004;"
+        class="nt-icon fas"
+        *ngIf="this.noticias.favoritos.indexOf(x) == -1"
+        (tap)="this.noticias.addFavorito(x)"
+      ></Label>
+      <Label
+        text="&#xf7a9;"
+        class="nt-icon fas"
+        *ngIf="this.noticias.favoritos.indexOf(x) != -1"
+        (tap)="this.noticias.removeFavorito(x)"
+      ></Label>
+    </FlexboxLayout>
+  </ng-template>
+</ListView>
+<!-- </PullRefresh:PullToRefresh>  -->

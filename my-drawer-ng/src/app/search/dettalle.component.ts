@@ -1,9 +1,12 @@
-import { Component, OnInit, ViewContainerRef } from "@angular/core";
+import { Component, Input, OnInit, ViewContainerRef } from "@angular/core";
 import { Application, zIndexProperty } from "@nativescript/core";
 import { ToastDuration, Toasty } from "@triniwiz/nativescript-toasty";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 //import * as dialogs from "@nativescript/core";
 import * as dialogs from "@nativescript/core/ui/dialogs";
+import { Store } from "@ngrx/store";
+import { AppState } from "../app.module";
+import { Noticia, NuevaNoticiaAction } from "../services/noticias-state.model";
 
 import { DetalleModel } from "./detalle.model";
 import { ModalDialogOptions, ModalDialogService } from "@nativescript/angular";
@@ -16,17 +19,31 @@ import { DialogContent } from "./editar-detalle.component";
 export class DetalleComponent implements OnInit {
   ofertas: DetalleModel[];
   result: string;
-
+  
   constructor(
     private modalService: ModalDialogService,
-    private viewContainerRef: ViewContainerRef
+    private viewContainerRef: ViewContainerRef,
+    private store: Store<AppState>
   ) {}
 
   ngOnInit(): void {
+    
     let a: DetalleModel = new DetalleModel();
     let b: DetalleModel = new DetalleModel();
     let c: DetalleModel = new DetalleModel();
-    this.ofertas = [a, b, c];
+    this.ofertas = [a, b, c]
+    
+
+  this.store.select((state) => state.noticias.sugerida)
+  .subscribe((data) => {
+    const f = data;
+    if (f != null) {
+      const toast = new Toasty({ text: "Sugerimos leer: "+f.titulo }).setToastDuration(
+        ToastDuration.SHORT);
+        console.log("Sugerimos leer: "+f);
+      }
+});
+    
   }
 
   onDrawerButtonTap(): void {
@@ -99,5 +116,9 @@ export class DetalleComponent implements OnInit {
           toast.show();
         }
       });
+  }
+
+  onItemTap(args): void {
+    this.store.dispatch(new NuevaNoticiaAction(new Noticia(args.view.bindingContext)));
   }
 }
