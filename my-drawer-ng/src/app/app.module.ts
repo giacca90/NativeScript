@@ -5,9 +5,12 @@ import * as dialogs from "@nativescript/core/ui/dialogs";
 import { EffectsModule } from "@ngrx/effects";
 import { ActionReducerMap, StoreModule as NgRxStoreModule } from "@ngrx/store";
 import {
+  FavoritosState,
+  initializeFavoritosStrate,
   intializeNoticiasState,
   NoticiasEffects,
   NoticiasState,
+  reducersFavoritos,
   reducersNoticias
 } from "./services/noticias-state.model";
 
@@ -16,19 +19,23 @@ import { AppComponent } from './app.component'
 import { EditComponent} from './editar-comp.component'
 import { MenuService} from './services/menu.service'
 import { NoticiasService } from './services/noticias.service'
+import { FactoryTarget } from '@angular/compiler';
 
 // redux init
 // tslint:disable-next-line:interface-name
 export interface AppState {
   noticias: NoticiasState;
+  favoritos: FavoritosState;
 }
 
 const reducers: ActionReducerMap<AppState> = {
-  noticias: reducersNoticias
+  noticias: reducersNoticias,
+  favoritos: reducersFavoritos
 };
 
 const reducersInitialState = {
-  noticias: intializeNoticiasState()
+  noticias: intializeNoticiasState(),
+  favoritos: initializeFavoritosStrate()
 };
 // fin redux init
 

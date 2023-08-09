@@ -14,7 +14,7 @@ import { filter } from 'rxjs'
 //  providers: [NoticiasService]
 })
 export class SearchComponent implements OnInit {
-  resultados: Array<string>;
+  resultados: string[];
   private _sideDrawerTransition: SlideInOnTopTransition
   private _activatedUrl: string
   constructor(//private noticias: NoticiasService,

@@ -15,7 +15,7 @@ import { ToastDuration, Toasty } from "@triniwiz/nativescript-toasty";
   templateUrl: "./listado.component.html",
 })
 export class ListadoComponent implements OnInit {
-  resultado: Array<string>;
+  resultado: string[];
   favoritos: string[] = [];
 
   private _activatedUrl: string
@@ -27,6 +27,7 @@ export class ListadoComponent implements OnInit {
 //    private store: Store<AppState>
     ) {
     console.log("-----LISTADO------"+this.noticias.favoritos)
+    this.favoritos = this.noticias.favoritos
   }
 
   ngOnInit(): void {
@@ -70,7 +71,8 @@ export class ListadoComponent implements OnInit {
   }
 
   buscar(s: string)  {
-    console.dir("buscarAhora" + s);
+    console.dir("buscarAhora " + s);
+    console.log("al buscar: "+this.noticias.favoritos)
     this.noticias.buscar(s).then((r: any) => {
       console.log("resultado buscarAhora: "+ JSON.stringify(r));
       this.resultado = r;
@@ -78,6 +80,9 @@ export class ListadoComponent implements OnInit {
       console.log("error buscarAhora " +e);
       const toast = new Toasty({ text: "Error en la búsqueda" }).setToastDuration(ToastDuration.SHORT)
     })
-
+    console.log("-----PRUEBA DE TIPOS-----");
+    for(let i=0; i<this.noticias.favoritos.length; i++) {
+      console.log("#"+i+"; "+this.noticias.favoritos[i]+"; "+ typeof this.noticias.favoritos[i])
+    }
   }
 }
