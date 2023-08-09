@@ -8,6 +8,28 @@
   </GridLayout>
 </ActionBar>
 
+<ListView
+  class="list-group"
+  [items]="this.noticias.favoritos"
+  style="height: 1250px"
+>
+  <ng-template let-x="item">
+    <FlexboxLayout flexDirection="row" class="list-group-item">
+      <Image 
+        src="res://icon" 
+        class="thumb img-circle">
+      </Image>
+      <Label
+        [text]="x"
+        class="list-group-item-heading"
+        verticalAlignment="center"
+        style="width: 60%"
+        n
+      ></Label>
+    </FlexboxLayout>
+  </ng-template>
+</ListView>
+
 <GridLayout class="page__content">
   <Label class="page__content-icon fas" text="&#xf015;"></Label>
   <Label class="page__content-placeholder" text="componente home"></Label>

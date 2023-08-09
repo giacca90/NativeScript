@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { Application } from '@nativescript/core'
+import { NoticiasService } from '../services/noticias.service'
 
 @Component({
   selector: 'Home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
-  constructor() {
+  constructor(public noticias: NoticiasService) {
     // Use the component constructor to inject providers.
   }
 
