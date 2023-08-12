@@ -111,11 +111,11 @@ export class NoticiasService {
  */  
   }  
 
-  esFavorito(x: string) {{
+  esFavorito(x: string) {
     let result: boolean = false
     this.store.select(store => store.favoritos.items).subscribe(store => {
       return store.indexOf(new Favoritos(x));
     } )
-  }}
+  }
 }
 
