@@ -10,7 +10,9 @@
     <FlexboxLayout flexDirection="row" class="list-group-item">
       <Image 
         src="res://icon" 
-        class="thumb img-circle">
+        class="thumb img-circle"
+        (longPress)="OnLongPress(x)"
+        >
       </Image>
       <Label
         [text]="x"

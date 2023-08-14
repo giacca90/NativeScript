@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer'
 import { Application, Color, View } from '@nativescript/core'
+import * as SocialShare from "@nativescript/social-share";
+import { ImageSource } from "@nativescript/core";
 
 @Component({
   selector: 'Featured',
@@ -69,5 +71,13 @@ export class FeaturedComponent implements OnInit {
     }))
     )
     )
+  }
+
+  prueba4() {
+//    let image: ImageSource =<ImageSource>ImageSource.fromResourceSync("~app/images/playstore-icon");
+let image: ImageSource =ImageSource.fromFileOrResourceSync("res://stop_app");
+
+     SocialShare.shareImage(image);
+//    SocialShare.shareImage(image);
   }
 }

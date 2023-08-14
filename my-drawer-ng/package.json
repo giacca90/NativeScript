@@ -15,6 +15,7 @@
     "@nativescript-community/ui-pulltorefresh": "^2.5.3",
     "@nativescript/angular": "^15.0.0",
     "@nativescript/core": "~8.5.0",
+    "@nativescript/social-share": "^2.3.0",
     "@nativescript/theme": "~3.0.2",
     "@ngrx/effects": "^15.4.0",
     "@ngrx/store": "^15.4.0",

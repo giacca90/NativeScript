@@ -3,6 +3,7 @@ import { RouterExtensions } from '@nativescript/angular'
 //import { Store } from "@ngrx/store";
 //import { AppState } from "../app.module";
 //import { Noticia, NuevaNoticiaAction } from "../services/noticias-state.model";
+import * as SocialShare from "@nativescript/social-share";
 
 import { NoticiasService } from "../services/noticias.service";
 import { DrawerTransitionBase, SlideInOnTopTransition } from "nativescript-ui-sidedrawer";
@@ -84,5 +85,10 @@ export class ListadoComponent implements OnInit {
     for(let i=0; i<this.noticias.favoritos.length; i++) {
       console.log("#"+i+"; "+this.noticias.favoritos[i]+"; "+ typeof this.noticias.favoritos[i])
     }
+  }
+
+  OnLongPress(x: string)  {
+    console.log("OnLongPress: "+x);
+    SocialShare.shareText(x,"Enviadlo desde la App!!");
   }
 }
