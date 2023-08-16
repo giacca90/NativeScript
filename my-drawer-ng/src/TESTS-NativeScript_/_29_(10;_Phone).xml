@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<testsuite name="NativeScript / 29 (10; Phone)" package="" timestamp="2023-08-16T13:02:04" id="0" hostname="kali" tests="1" errors="0" failures="0" time="0.015">
+  <properties>
+    <property name="browser.fullName" value="NativeScript / 29 (10; Phone)"/>
+  </properties>
+  <testcase name="A suite contains spec with an expectation" time="0.015" classname="NativeScript_/_29_(10;_Phone).A suite"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
